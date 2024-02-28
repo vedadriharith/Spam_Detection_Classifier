@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-mail Classifier</title>
+    <title>Email Spam Classifier</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <style>
         body {
-            background-color: #f8f9fa;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
         }
         .container {
             max-width: 600px;
@@ -19,45 +19,21 @@
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
         }
         h1 {
             color: #007bff;
-            margin-bottom: 30px;
             text-align: center;
-        }
-        textarea {
-            resize: none;
-            border: 1px solid #ced4da;
-            border-radius: 5px;
-            padding: 10px;
             margin-bottom: 20px;
-        }
-        button[type="submit"] {
-            background-color: #007bff;
-            border: none;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        button[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-        .btn-reset {
-            color: #007bff;
-            text-decoration: none;
-            margin-left: 10px;
-            transition: color 0.3s;
-        }
-        .btn-reset:hover {
-            color: #0056b3;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
         .result {
-            font-size: 24px;
+            font-size: 2rem;
             font-weight: bold;
-            margin-top: 30px;
             text-align: center;
+            margin-top: 30px;
         }
         .result.spam {
             color: #dc3545;
@@ -69,16 +45,16 @@
 </head>
 <body>
     <div class="container">
-        <h1>E-mail Classifier</h1>
+        <h1 class="display-4">Email Spam Classifier</h1>
         <form method="post" action="/predict">
             <textarea class="form-control" rows="10" name="email-content" placeholder="Enter your email">{{ email }}</textarea>
-            <button type="submit">Check Spam</button>
-            <a href="/" class="btn-reset">Reset</a>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Check Spam</button>
+            <a href="/" class="btn btn-outline-primary btn-lg btn-block mt-3">Reset</a>
         </form>
         {% if prediction == 1 %}
-            <div class="result spam">SPAM</div>
+            <div class="result spam mt-4">SPAM</div>
         {% elif prediction == -1 %}
-            <div class="result not-spam">NOT SPAM</div>
+            <div class="result not-spam mt-4">NOT SPAM</div>
         {% endif %}
     </div>
 
