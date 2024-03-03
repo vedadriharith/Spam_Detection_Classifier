@@ -4,31 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Spam Classifier</title>
-    <link rel="icon" type="image/x-icon" href="email.ico">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='email.ico') }}">
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f5f5;
+            background-color: #f8f9fa;
         }
         .container {
-            max-width: 600px;
-            margin: 0 auto;
+            max-width: 800px;
+            margin: 50px auto;
             padding: 30px;
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            margin-top: 50px;
         }
         h1 {
             color: #007bff;
             text-align: center;
-            margin-bottom: 20px;
-            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 30px;
+        }
+        .form-control {
+            height: auto;
+        }
+        .btn-check-spam {
+            font-size: 1.2rem;
             font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .btn-reset {
+            font-size: 1.2rem;
         }
         .result {
             font-size: 2rem;
@@ -48,9 +57,11 @@
     <div class="container">
         <h1 class="display-4">Email Spam Classifier</h1>
         <form method="post" action="/predict">
-            <textarea class="form-control" rows="10" name="email-content" placeholder="Enter your email">{{ email }}</textarea>
-            <button type="submit" class="btn btn-primary btn-lg btn-block">Check Spam</button>
-            <a href="/" class="btn btn-outline-primary btn-lg btn-block mt-3">Reset</a>
+            <div class="form-group">
+                <textarea class="form-control" rows="10" name="email-content" placeholder="Enter your email"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block btn-check-spam">Check Spam</button>
+            <a href="/" class="btn btn-outline-primary btn-lg btn-block btn-reset">Reset</a>
         </form>
         {% if prediction == 1 %}
             <div class="result spam mt-4">SPAM</div>
