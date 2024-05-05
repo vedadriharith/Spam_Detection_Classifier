@@ -1,8 +1,8 @@
 # Spam_Classifier
-Abstract:
+# Abstract:
 The Email Spam Classifier project is a machine learning application designed to accurately identify spam emails from a given dataset. Leveraging the power of the Multinomial Naive Bayes algorithm and popular Python libraries such as NumPy, Pandas, and scikit-learn, the classifier achieves an impressive accuracy score of 98%. The project encompasses various stages, including data preprocessing, model training, evaluation, and deployment.
 
-Introduction:
+# Introduction:
 In today's digital age, email has become a primary mode of communication for individuals and businesses alike. However, the proliferation of spam emails poses a significant challenge, leading to a cluttered inbox and potential security risks. To address this issue, the Email Spam Classifier project aims to develop a robust machine learning model capable of distinguishing between spam and legitimate emails with high accuracy.
 
 Data Preprocessing:
